@@ -11,3 +11,5 @@ jar - https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/
 config (wiki) - https://wiki.geysermc.org/geyser/understanding-the-config/
 
 
+# References
+great https://github.com/wonderbird/minecraft-server

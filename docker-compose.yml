@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    name: minecraft
+    environment:
+      EULA: "TRUE"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    volumes:
+      - ./data:/data
+  geyser:
+    image: bmoorman/geyser:latest
+    name: geyser
+    ports:
+      - "19132:19132/udp"
+    environment:
+      TZ: "Europe/London"
+      GEYSER_MIN_MEM: "1024m"
+      GEYSER_MAX_MEM: "1434m"
+    container_name: geyser
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1.5G
+    volumes:
+      - ./geyser:/var/lib/geyser 

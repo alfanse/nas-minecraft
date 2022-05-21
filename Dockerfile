@@ -4,7 +4,7 @@ RUN mkdir /geyser
 RUN mkdir /geyser/data
 
 COPY downloads/geyser.jar /usr/bin/geyser.jar
-COPY config.yml /geyser
+COPY geyser/config.yml /geyser/config.yml
 
 WORKDIR /geyser/data
 VOLUME /geyser/data

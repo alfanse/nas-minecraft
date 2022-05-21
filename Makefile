@@ -19,3 +19,5 @@ export: ## save the docker image for import by nas
 start-mc: ## start minecraft server, in docker
 	docker run --name minecraft -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server
 
+lsof-mc: ## see whats on the ports
+	 lsof -i :25565,19132

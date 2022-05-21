@@ -18,7 +18,7 @@ services:
     image: alfanse/geyser:1.0
     container_name: geyser
     ports:
-      - "19132:19132"
+      - "19132:19132/udp"
     environment:
       TZ: "Europe/London"
       GEYSER_MIN_MEM: "1024m"

@@ -1,8 +1,8 @@
-version: '3.7'
+version: '3'
 services:
   minecraft:
     image: itzg/minecraft-server
-    name: minecraft
+    container_name: minecraft
     environment:
       EULA: "TRUE"
     restart: on-failure
@@ -13,15 +13,14 @@ services:
     volumes:
       - ./data:/data
   geyser:
-    image: bmoorman/geyser:latest
-    name: geyser
+    image: alfanse/geyser:1.0
+    container_name: geyser
     ports:
       - "19132:19132/udp"
     environment:
       TZ: "Europe/London"
       GEYSER_MIN_MEM: "1024m"
       GEYSER_MAX_MEM: "1434m"
-    container_name: geyser
     restart: unless-stopped
     deploy:
       resources:

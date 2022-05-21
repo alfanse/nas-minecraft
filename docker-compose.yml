@@ -15,6 +15,7 @@ services:
   geyser:
     image: alfanse/geyser:1.0
     container_name: geyser
+    network_mode: host
     ports:
       - "19132:19132/udp"
     environment:

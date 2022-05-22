@@ -15,7 +15,7 @@ services:
     volumes:
       - ./data:/data
   geyser:
-    image: alfanse/geyser:1.0
+    image: alfanse/geyser:1.1
     container_name: geyser
     ports:
       - "19132:19132/udp"
@@ -29,4 +29,4 @@ services:
         limits:
           memory: 1.5G
     volumes:
-      - ./geyser:/var/lib/geyser 
+      - ./geyser:/geyser

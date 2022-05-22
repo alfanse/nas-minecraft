@@ -1,13 +1,17 @@
 FROM openjdk:17-ea-jdk-alpine
 
-RUN mkdir /geyser
-RUN mkdir /geyser/data
+# Download latest version of the GeyserMC
+ADD https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/target/Geyser.jar /usr/bin/
 
-COPY downloads/geyser.jar /usr/bin/geyser.jar
+# add the config file
+RUN mkdir /geyser
+RUN mkdir /data
 COPY geyser/config.yml /geyser/config.yml
 
 WORKDIR /geyser/data
-VOLUME /geyser/data
+VOLUME /geyser
 
-EXPOSE 19132
-CMD ["java", "-Xmx512M", "-Xms512M", "-jar", "/usr/bin/geyser.jar", "--config", "/geyser/config.yml"]
+ENV PORT=19132
+EXPOSE $PORT/udp
+
+CMD ["java", "-Xmx512M", "-Xms512M", "-jar", "/usr/bin/Geyser.jar", "--config", "/geyser/config.yml"]

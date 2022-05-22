@@ -10,7 +10,7 @@
 bedrock:
   # The IP address that will listen for connections.
   # There is no reason to change this unless you want to limit what IPs can connect to your server.
-  address: 127.0.0.1
+  address: 0.0.0.0
   # The port that will listen for connections
   port: 19132
   # Some hosting services change your Java port everytime you start the server and require the same port to be used for Bedrock.
@@ -19,10 +19,10 @@ bedrock:
   clone-remote-port: false
   # The MOTD that will be broadcasted to Minecraft: Bedrock Edition clients. This is irrelevant if "passthrough-motd" is set to true
   # If either of these are empty, the respective string will default to "Geyser"
-  motd1: "NAS Geyser"
-  motd2: "Geyser java server on Dads NAS."
+  motd1: "Geyser to MC"
+  motd2: "Geyser for java minecraft"
   # The Server Name that will be sent to Minecraft: Bedrock Edition clients. This is visible in both the pause menu and the settings menu.
-  server-name: "NAS-Geyser"
+  server-name: "NAS-MC-Geyser"
   # How much to compress network traffic to the Bedrock client. The higher the number, the more CPU usage used, but
   # the smaller the bandwidth used. Does not have any effect below -1 or above 9. Set to -1 to disable.
   compression-level: 6
@@ -111,7 +111,7 @@ forward-player-ping: false
 max-players: 20
 
 # If debug messages should be sent through console
-debug-mode: false
+debug-mode: true
 
 # Thread pool size
 general-thread-pool: 32

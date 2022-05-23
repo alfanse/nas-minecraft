@@ -1,3 +1,6 @@
-downloads/
+tmp/
 .DS_Store
 data/*
+!data/server.properties
+geyser/data
+geyser/config

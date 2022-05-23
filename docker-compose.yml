@@ -6,12 +6,11 @@ services:
     ports:
       - "25565:25565"
     environment:
+      ONLINE_MODE: "FALSE"
       EULA: "TRUE"
+      MEMORY: "1G"
     restart: on-failure
-    deploy:
-      resources:
-        limits:
-          memory: 2G
+    stdin_open: true
     volumes:
       - ./data:/data
   geyser:
@@ -21,12 +20,14 @@ services:
       - "19132:19132/udp"
     environment:
       TZ: "Europe/London"
-      GEYSER_MIN_MEM: "1024m"
-      GEYSER_MAX_MEM: "1434m"
+      GEYSER_MIN_MEM: "512M"
+      GEYSER_MAX_MEM: "512M"
+      REMOTE_ADDRESS: "minecraft"
+      REMOTE_AUTH_TYPE: "offline"
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          memory: 1.5G
     volumes:
       - ./geyser:/geyser
+    links:
+      - minecraft
+    depends_on:
+      - minecraft

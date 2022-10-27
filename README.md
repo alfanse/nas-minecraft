@@ -3,6 +3,7 @@
 Uses: 
 * Minecraft - (java) edition as the server
 * Geyser - as a proxy for bedrock clients
+* dns - to route Nintendo Switch to Geyser, by remapping liferaft (mco.lbsg.net)
 
 Depends on docker + docker-compose.
 

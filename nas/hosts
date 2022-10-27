@@ -1,0 +1,7 @@
+127.0.0.1  localhost
+127.0.1.1  localhost
+192.168.1.5  NASE6BB78  NASE6BB78 nas mco.lbsg.net #eth1
+10.0.5.1  NASE6BB78  NASE6BB78  #docker0
+10.0.3.1  NASE6BB78  NASE6BB78  #lxcbr0
+10.0.7.1  NASE6BB78  NASE6BB78  #lxdbr0
+172.29.8.1  NASE6BB78  NASE6BB78  #br-055e4b4b85de

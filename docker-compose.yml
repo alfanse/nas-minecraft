@@ -14,7 +14,7 @@ services:
     volumes:
       - ./data:/data
   geyser:
-    image: alfanse/geyser:1.1
+    image: alfanse/geyser:1.2
     container_name: geyser
     ports:
       - "19132:19132/udp"
@@ -31,3 +31,19 @@ services:
       - minecraft
     depends_on:
       - minecraft
+
+# dns for connecting switch to minecraft by re-routing mco.lbsg.net. to nas.
+#  bind:
+#    container_name: dns
+#    restart: always
+#    image: sameersbn/bind:9.11.3-20190706
+#    ports:
+#    - "53:53/udp"
+#    - "53:53/tcp"
+#    - "10000:10000/tcp"
+#    volumes:
+#    - ./dns/data:/data
+#    links:
+#      - geyser
+#    depends_on:
+#      - geyser

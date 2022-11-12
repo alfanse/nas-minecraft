@@ -25,3 +25,7 @@ is-up: ## whats on the mc and geyser ports?
 
 logs: ## tail all the logs
 	docker-compose logs -f
+
+ip: Whats this machies IP address 192.168.0.60
+	ipconfig getifaddr en0
+

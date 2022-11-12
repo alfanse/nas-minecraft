@@ -11,3 +11,5 @@ geyser/config
 dns/*
 !dns/data/bind/etc/zones/db.mco.lbsg.net
 !dns/data/bind/etc/named.conf.local
+
+backups/*

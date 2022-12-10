@@ -1,13 +1,14 @@
-GEYSER_IMAGE="alfanse/geyser:1.2"
+GEYSER_NAME="alfanse/geyser"
+GEYSER_IMAGE="${GEYSER_NAME}:1.2"
 
 help: ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m\033[0m\n"} /^[$$()% a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
-build-geyser: ## create the geyser docker image
-	docker build . -t ${GEYSER_IMAGE} -f geyser.dockerfile
+geyser-build: ## create the geyser docker image
+	docker build -t "${GEYSER_NAME}:latest" -t ${GEYSER_IMAGE} -f geyser.dockerfile .
 
-export-geyser: ## save the geyser docker image for import by nas	
+geyser-export: ## save the geyser docker image for import by nas
 	mkdir tmp
 	docker save --output="tmp/geyser.tar" ${GEYSER_IMAGE}
 
@@ -26,6 +27,6 @@ is-up: ## whats on the mc and geyser ports?
 logs: ## tail all the logs
 	docker-compose logs -f
 
-ip: Whats this machies IP address 192.168.0.60
+ip: Whats this machines IP address
 	ipconfig getifaddr en0
 

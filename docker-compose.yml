@@ -14,7 +14,7 @@ services:
     volumes:
       - ./data:/data
   geyser:
-    image: alfanse/geyser:1.2
+    image: alfanse/geyser:latest
     container_name: geyser
     ports:
       - "19132:19132/udp"

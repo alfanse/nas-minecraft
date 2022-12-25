@@ -5,7 +5,7 @@ ADD https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulB
 
 # add the config file
 RUN mkdir /geyser
-RUN mkdir /data
+RUN mkdir /geyser/data
 COPY geyser/config.yml /geyser/config.yml
 
 WORKDIR /geyser/data

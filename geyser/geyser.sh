@@ -49,9 +49,9 @@ if [ "$local_md5" != "$geyser_latest_md5" ]; then
 
     md5OfGeyserJar
 
-    if [ "$local_md5" != "$geyser_latest_md" ]; then
+    if [ "$local_md5" != "$geyser_latest_md5" ]; then
         echo "Fatal error - downloaded MD5 did not match expected, downloaded: $local_md5, expected: $geyser_latest_md5"
-        exit 1
+        exit -1
     fi
 else
     echo "Restarting $geyser_jar"

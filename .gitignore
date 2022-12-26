@@ -5,8 +5,10 @@ tmp/
 
 data/*
 !data/server.properties
-geyser/data
-geyser/config
+
+geyser/*
+!geyser/geyser.sh
+!geyser/config.yml
 
 dns/*
 !dns/data/bind/etc/zones/db.mco.lbsg.net

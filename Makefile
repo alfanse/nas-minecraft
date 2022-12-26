@@ -1,5 +1,5 @@
 GEYSER_NAME="alfanse/geyser"
-GEYSER_IMAGE="${GEYSER_NAME}:1.2"
+GEYSER_IMAGE="${GEYSER_NAME}:1.3"
 
 help: ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'

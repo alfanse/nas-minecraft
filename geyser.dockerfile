@@ -1,12 +1,14 @@
-FROM openjdk:17-ea-jdk-alpine
+FROM openjdk:17-ea-jdk
 
-# Download latest version of the GeyserMC
-ADD https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/build/libs/Geyser-Standalone.jar /usr/bin/
+RUN microdnf update && \
+    microdnf install curl
 
-# add the config file
+# add the files
 RUN mkdir /geyser
 RUN mkdir /geyser/data
-COPY geyser/config.yml /geyser/config.yml
+COPY geyser/config.yml /geyser
+COPY geyser/geyser.sh /geyser
+RUN chmod +x /geyser/geyser.sh
 
 WORKDIR /geyser/data
 VOLUME /geyser
@@ -14,4 +16,4 @@ VOLUME /geyser
 ENV PORT=19132
 EXPOSE $PORT/udp
 
-CMD ["java", "-Xmx512M", "-Xms512M", "-jar", "/usr/bin/Geyser-Standalone.jar", "--config", "/geyser/config.yml"]
+ENTRYPOINT [ "sh", "/geyser/geyser.sh" ]

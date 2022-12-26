@@ -15,20 +15,22 @@ make help
 
 Usage:
   help             Show this help.
-  build-geyser     create the geyser docker image
-  export-geyser    save the geyser docker image for import by nas	
-  start            start all with docker-compose 
+  geyser-build     create the geyser docker image
+  geyser-export    save the geyser docker image for import by nas
+  up               start all with docker-compose
+  all-up           start minecraft, geyser, dns
+  down             stop all with docker-compose
   is-up            whats on the mc and geyser ports?
   logs             tail all the logs
 ```
 
 ### Workflow
 
-build the geyser docker image `make build-geyser`.
+build the geyser docker image `make geyser-build`.
 
-If you need to move the docker image from say computer to nas, `make export-geyser`.
+If you need to move the docker image from say computer to nas, `make geyser-export`.
 
-Start minecraft and geyser using `make start` ~= `docker-compose up -d`.
+Start minecraft and geyser using `make up` ~= `docker-compose up -d`.
 
 checks ports are in use `make is-up` and check logs `make logs`.
 
